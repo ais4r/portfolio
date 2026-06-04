@@ -1,792 +1,1248 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portofolio Tipografi Kinetik dari Reza Kurniawan. Developer Kreatif & Arsitek UI/UX yang berspesialisasi pada performa tinggi dan desain web brutalist.">
-  <title>REZA KURNIAWAN // KINETIC PORTFOLIO & UI ARCHITECT</title>
+  <meta name="description"
+    content="Portofolio Industrial Realism dari Reza Kurniawan. Developer Kreatif & Arsitek UI/UX yang berspesialisasi pada performa tinggi dan desain web industrial skeuomorphism.">
+  <title>REZA KURNIAWAN // INDUSTRIAL PORTFOLIO & UI ARCHITECT</title>
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap');
-
-/* --- Core Design Tokens --- */
-:root {
-  --background: #09090B;
-  --foreground: #FAFAFA;
-  --muted: #27272A;
-  --muted-foreground: #A1A1AA;
-  --accent: #DFE104;
-  --accent-foreground: #000000;
-  --border: #3F3F46;
-
-  /* Typography Fallbacks */
-  --font-display: 'Space Grotesk', 'Inter', sans-serif;
-  --font-body: 'Inter', sans-serif;
-
-  /* Spacing Base */
-  --space-base: 4px;
-}
-
-/* --- Base Resets & Global --- */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  cursor: none; /* Hide default cursor to use brutalist custom cursor */
-}
-
-html {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-body);
-  font-size: 16px;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-}
-
-body {
-  min-height: 100vh;
-  position: relative;
-  overflow-x: hidden;
-}
-
-/* Noise overlay */
-.noise-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0.03;
-  mix-blend-mode: overlay;
-}
-
-/* --- Custom Brutalist Cursor --- */
-.custom-cursor {
-  width: 20px;
-  height: 20px;
-  border: 2px solid var(--accent);
-  background: transparent;
-  position: fixed;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  z-index: 10000;
-  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease, border-radius 0.2s ease;
-}
-
-/* Cursor scale on hover */
-.custom-cursor.hovering {
-  width: 40px;
-  height: 40px;
-  background-color: rgba(223, 225, 4, 0.2);
-  border-color: var(--accent);
-}
-
-.custom-cursor.clicking {
-  width: 15px;
-  height: 15px;
-  background-color: var(--accent);
-}
-
-/* Keyboard focus visibility fallback */
-*:focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 4px;
-}
-
-/* --- Selection Highlight --- */
-::selection {
-  background-color: var(--accent);
-  color: var(--accent-foreground);
-}
-
-/* --- Layout Elements --- */
-.container-wide {
-  width: 100%;
-  max-width: 95vw;
-  margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-@media (min-width: 768px) {
-  .container-wide {
-    max-width: 90vw;
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
-
-/* --- Typography Utilities --- */
-.uppercase-display {
-  font-family: var(--font-display);
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: -0.05em;
-  line-height: 0.9;
-}
-
-.hero-title {
-  font-size: clamp(3rem, 12vw, 12rem);
-  letter-spacing: -0.06em;
-}
-
-.section-heading {
-  font-size: clamp(2.5rem, 8vw, 6rem);
-  margin-bottom: 2rem;
-}
-
-.card-title {
-  font-size: clamp(1.8rem, 4vw, 3.5rem);
-}
-
-.body-text {
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  color: var(--muted-foreground);
-  line-height: 1.4;
-}
-
-.label-text {
-  font-family: var(--font-display);
-  font-size: clamp(0.75rem, 1.2vw, 1rem);
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  color: var(--accent);
-}
-
-.massive-number {
-  font-family: var(--font-display);
-  font-size: clamp(6rem, 15vw, 12rem);
-  font-weight: 700;
-  color: var(--muted);
-  line-height: 0.8;
-  user-select: none;
-}
-
-/* --- Header / Navigation --- */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background-color: var(--background);
-  border-bottom: 2px solid var(--border);
-  padding: 1.5rem 0;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav-logo {
-  font-family: var(--font-display);
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  color: var(--foreground);
-  text-decoration: none;
-  letter-spacing: -0.03em;
-}
-
-.nav-logo span {
-  color: var(--accent);
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-
-.nav-link {
-  font-family: var(--font-display);
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  color: var(--foreground);
-  text-decoration: none;
-  position: relative;
-  padding: 0.5rem 0;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--accent);
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-/* --- Button Component Styling --- */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  height: 56px;
-  padding: 0 2rem;
-  border-radius: 0px;
-  border: 2px solid transparent;
-  text-decoration: none;
-  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-}
-
-.btn:active {
-  transform: scale(0.95);
-}
-
-.btn-primary {
-  background-color: var(--accent);
-  color: var(--accent-foreground);
-}
-
-.btn-primary:hover {
-  transform: scale(1.05);
-}
-
-.btn-outline {
-  border-color: var(--border);
-  background-color: transparent;
-  color: var(--foreground);
-}
-
-.btn-outline:hover {
-  background-color: var(--foreground);
-  color: var(--accent-foreground);
-  border-color: var(--foreground);
-}
-
-.btn-ghost {
-  background-color: transparent;
-  color: var(--foreground);
-}
-
-.btn-ghost:hover {
-  color: var(--accent);
-}
-
-/* --- Hero Section --- */
-.hero-section {
-  padding: 8rem 0 4rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.hero-description {
-  max-width: 600px;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-/* --- Infinite Marquee System --- */
-.marquee-container {
-  display: flex;
-  overflow: hidden;
-  user-select: none;
-  width: 100%;
-  border-top: 2px solid var(--border);
-  border-bottom: 2px solid var(--border);
-  background: var(--background);
-  padding: 1.5rem 0;
-}
-
-.marquee-container.bg-accent {
-  background-color: var(--accent);
-  border-top-color: var(--accent);
-  border-bottom-color: var(--accent);
-  color: var(--accent-foreground);
-}
-
-.marquee-container.bg-accent .marquee-text {
-  color: var(--accent-foreground);
-}
-
-.marquee-track {
-  display: flex;
-  white-space: nowrap;
-  animation: marquee-scroll linear infinite;
-  will-change: transform;
-}
-
-.marquee-track.speed-fast {
-  animation-duration: 20s;
-}
-
-.marquee-track.speed-medium {
-  animation-duration: 40s;
-}
-
-.marquee-text {
-  font-family: var(--font-display);
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: clamp(2rem, 5vw, 4.5rem);
-  letter-spacing: -0.02em;
-  padding-right: 2rem;
-  display: flex;
-  align-items: center;
-}
-
-.marquee-separator {
-  color: var(--accent);
-  margin: 0 1.5rem;
-}
-
-.bg-accent .marquee-separator {
-  color: var(--background);
-}
-
-@keyframes marquee-scroll {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
-/* --- Work / Portfolio Section --- */
-.section-wrapper {
-  padding: 8rem 0;
-  border-bottom: 2px solid var(--border);
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-top: 4rem;
-}
-
-@media (min-width: 768px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0;
-    /* Hairline gap simulation using parent background and border rules */
-    background-color: var(--border);
-    border: 2px solid var(--border);
-  }
-}
-
-/* Card design */
-.project-card {
-  background-color: var(--background);
-  padding: 3rem;
-  border: 2px solid var(--border);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 450px;
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-}
-
-@media (min-width: 768px) {
-  .project-card {
-    border: none;
-    margin: 1px;
-  }
-}
-
-.project-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 3rem;
-}
-
-.project-card-body {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.project-card-footer {
-  margin-top: 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.project-tags {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  list-style: none;
-}
-
-.project-tag {
-  font-family: var(--font-display);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  border: 1px solid var(--border);
-  padding: 0.25rem 0.75rem;
-  color: var(--muted-foreground);
-}
-
-.project-card-arrow {
-  font-size: 1.5rem;
-  transform: translate(0, 0);
-  transition: transform 0.3s ease;
-}
-
-/* Card hover - Floods with Accent Color and Inverts Text */
-.project-card:hover {
-  background-color: var(--accent);
-  border-color: var(--accent);
-  color: var(--accent-foreground);
-}
-
-.project-card:hover .project-card-arrow {
-  transform: translate(5px, -5px);
-}
-
-.project-card:hover .card-title,
-.project-card:hover .body-text,
-.project-card:hover .project-card-index,
-.project-card:hover .project-tag {
-  color: var(--accent-foreground);
-}
-
-.project-card:hover .project-tag {
-  border-color: var(--accent-foreground);
-}
-
-.project-card-index {
-  font-family: var(--font-display);
-  font-weight: 700;
-  color: var(--muted);
-  font-size: clamp(3rem, 6vw, 4.5rem);
-  line-height: 0.8;
-  transition: color 0.3s ease;
-}
-
-/* --- About Section (Asymmetric Stack) --- */
-.about-split {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 4rem;
-  margin-top: 4rem;
-}
-
-@media (min-width: 1024px) {
-  .about-split {
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 8rem;
-  }
-}
-
-.about-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.about-graphics {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  justify-content: center;
-}
-
-.graphic-block {
-  border: 2px solid var(--border);
-  padding: 2.5rem;
-  position: relative;
-  background-color: var(--background);
-}
-
-.graphic-block .massive-number {
-  position: absolute;
-  top: -2rem;
-  right: 2rem;
-  opacity: 0.15;
-}
-
-/* Skills list */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  margin-top: 2rem;
-  list-style: none;
-}
-
-.skill-item {
-  font-family: var(--font-display);
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: clamp(1rem, 2vw, 1.5rem);
-  border-bottom: 2px solid var(--border);
-  padding-bottom: 0.75rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.skill-item::after {
-  content: '→';
-  color: var(--accent);
-}
-
-/* --- Contact Form Section --- */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 4rem;
-  margin-top: 4rem;
-}
-
-@media (min-width: 1024px) {
-  .contact-grid {
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 6rem;
-  }
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 3.5rem;
-}
-
-.form-group {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-.form-label {
-  font-family: var(--font-display);
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
-  color: var(--muted-foreground);
-  margin-bottom: 1rem;
-}
-
-/* Oversized Input (96px height) */
-.form-input {
-  height: 96px;
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid var(--border);
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
-  font-weight: 700;
-  text-transform: uppercase;
-  color: var(--foreground);
-  letter-spacing: -0.03em;
-  padding: 1rem 0;
-  border-radius: 0;
-  width: 100%;
-  transition: border-bottom-color 0.2s ease;
-}
-
-.form-input:focus {
-  outline: none;
-  border-bottom-color: var(--accent);
-}
-
-.form-input::placeholder {
-  color: var(--muted);
-  text-transform: uppercase;
-}
-
-.contact-info-block {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-}
-
-.contact-item {
-  border-left: 4px solid var(--accent);
-  padding-left: 2rem;
-}
-
-.contact-item-title {
-  font-family: var(--font-display);
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 0.05em;
-  color: var(--muted-foreground);
-  margin-bottom: 0.5rem;
-}
-
-.contact-item-content {
-  font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2.5vw, 2.2rem);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  color: var(--foreground);
-  text-decoration: none;
-  display: inline-block;
-  transition: color 0.2s ease;
-}
-
-.contact-item-content:hover {
-  color: var(--accent);
-}
-
-/* --- Footer Area --- */
-footer {
-  padding: 6rem 0;
-  border-top: 2px solid var(--border);
-  background-color: var(--background);
-}
-
-.footer-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 4rem;
-  flex-wrap: wrap;
-  gap: 3rem;
-}
-
-.footer-logo {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -0.04em;
-}
-
-.footer-links {
-  display: flex;
-  gap: 3rem;
-  flex-wrap: wrap;
-  list-style: none;
-}
-
-.footer-link {
-  font-family: var(--font-display);
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  color: var(--muted-foreground);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.footer-link:hover {
-  color: var(--accent);
-}
-
-.footer-bottom {
-  border-top: 1px solid var(--border);
-  padding-top: 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.copyright {
-  color: var(--muted-foreground);
-  font-size: 0.9rem;
-}
-
-/* Back to Top button */
-.btn-top {
-  width: 50px;
-  height: 50px;
-  border: 2px solid var(--border);
-  background: transparent;
-  color: var(--foreground);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 1.25rem;
-  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-}
-
-.btn-top:hover {
-  border-color: var(--accent);
-  background-color: var(--accent);
-  color: var(--accent-foreground);
-}
-
-/* --- Accessibility Adjustments --- */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-delay: -1ms !important;
-    animation-duration: 1ms !important;
-    animation-iteration-count: 1 !important;
-    background-attachment: initial !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0s !important;
-    transition-delay: 0s !important;
-  }
-  
-  .marquee-track {
-    animation: none !important;
-    flex-wrap: wrap;
-    white-space: normal;
-  }
-  
-  .custom-cursor {
-    display: none;
-  }
-  
-  * {
-    cursor: auto !important;
-  }
-}
+    /* --- Core Design Tokens (Industrial Skeuomorphism) --- */
+    :root {
+      --background: #e0e5ec;
+      --foreground: #f0f2f5;
+      --muted: #d1d9e6;
+      --text-primary: #2d3436;
+      --text-muted: #4a5568;
+      --accent: #ff4757; /* Braun Safety Orange */
+      --accent-foreground: #ffffff;
+      --border-shadow: #babecc;
+      --border-light: #ffffff;
+      --border-dark: #a3b1c6;
+
+      /* Neumorphic Shadow system */
+      --shadow-card: 8px 8px 16px var(--border-shadow), -8px -8px 16px var(--border-light);
+      --shadow-floating: 12px 12px 24px var(--border-shadow), -12px -12px 24px var(--border-light), inset 1px 1px 0 rgba(255,255,255,0.5);
+      --shadow-pressed: inset 6px 6px 12px var(--border-shadow), inset -6px -6px 12px var(--border-light);
+      --shadow-recessed: inset 4px 4px 8px var(--border-shadow), inset -4px -4px 8px var(--border-light);
+      --shadow-glow: 0 0 10px 2px rgba(255, 71, 87, 0.6);
+
+      /* Typography */
+      --font-sans: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    /* --- Base Resets & Global --- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      cursor: none; /* Hide default cursor to use custom target reticle */
+    }
+
+    html {
+      background-color: var(--background);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+      background-color: var(--background);
+    }
+
+    /* Noise overlay - Matte Plastic Texture */
+    .noise-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.15;
+      mix-blend-mode: overlay;
+    }
+
+    /* --- Custom Target Reticle Cursor --- */
+    .custom-cursor {
+      width: 24px;
+      height: 24px;
+      border: 1.5px solid var(--accent);
+      border-radius: 50%;
+      position: fixed;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 10000;
+      transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+      box-shadow: 0 0 8px rgba(255, 71, 87, 0.3);
+      opacity: 0;
+    }
+
+    .custom-cursor::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 4px;
+      height: 4px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Cursor states */
+    .custom-cursor.hovering {
+      width: 38px;
+      height: 38px;
+      background-color: rgba(255, 71, 87, 0.1);
+      border-color: var(--accent);
+    }
+
+    .custom-cursor.clicking {
+      width: 16px;
+      height: 16px;
+      background-color: var(--accent);
+    }
+
+    /* Keyboard focus visibility fallback */
+    *:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    ::selection {
+      background-color: var(--accent);
+      color: var(--accent-foreground);
+    }
+
+    /* --- Layout Elements --- */
+    .container-wide {
+      width: 100%;
+      max-width: 72rem; /* 1152px */
+      margin: 0 auto;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .container-wide {
+        padding-left: 3rem;
+        padding-right: 3rem;
+      }
+    }
+
+    /* --- Typography Utilities --- */
+    .uppercase-display {
+      font-family: var(--font-sans);
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.0;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 7vw, 4.8rem);
+      letter-spacing: -0.03em;
+      filter: drop-shadow(0 1px 0 #ffffff);
+      margin-bottom: 1rem;
+    }
+
+    .section-heading {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      filter: drop-shadow(0 1px 0 #ffffff);
+      margin-bottom: 2rem;
+    }
+
+    .card-title {
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .body-text {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .label-text {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+
+    .massive-number {
+      font-family: var(--font-mono);
+      font-size: clamp(4rem, 10vw, 8rem);
+      font-weight: 700;
+      color: var(--border-dark);
+      line-height: 0.8;
+      user-select: none;
+    }
+
+    /* --- Header / Navigation --- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: var(--background);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), inset 0 1px 0 #ffffff;
+      border-bottom: 1px solid var(--border-dark);
+      padding: 1.2rem 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 1.3rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-family: var(--font-sans);
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background-color 150ms ease, color 150ms ease, box-shadow 150ms ease;
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+      background-color: var(--foreground);
+      box-shadow: var(--shadow-recessed);
+    }
+
+    /* Header LED status styles */
+    .header-status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-left: 1.5rem;
+      padding-left: 1.5rem;
+      border-left: 1px solid var(--border-dark);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .led {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .led-green {
+      background-color: #22c55e;
+      box-shadow: 0 0 8px 1px #22c55e;
+      animation: led-pulse 2s infinite alternate;
+    }
+
+    .led-orange {
+      background-color: var(--accent);
+      box-shadow: var(--shadow-glow);
+      animation: led-pulse 2s infinite alternate;
+    }
+
+    @keyframes led-pulse {
+      0% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+
+    /* --- Button Component Styling ("Physical Keys") --- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: var(--font-sans);
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      height: 48px;
+      padding: 0 1.75rem;
+      border-radius: 8px; /* md */
+      border: 1px solid transparent;
+      text-decoration: none;
+      transition: transform 150ms cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 150ms ease, background-color 150ms ease;
+      box-shadow: var(--shadow-card);
+      background-color: var(--background);
+      color: var(--text-primary);
+    }
+
+    .btn:hover {
+      filter: brightness(1.02);
+    }
+
+    .btn:active {
+      transform: translateY(2px);
+      box-shadow: var(--shadow-pressed);
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: var(--accent-foreground);
+      box-shadow: 4px 4px 8px rgba(166,50,60,0.3), -4px -4px 8px rgba(255,100,110,0.3);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent);
+      filter: brightness(1.08);
+    }
+
+    .btn-primary:active {
+      transform: translateY(2px);
+      box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.3), inset -4px -4px 8px rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-outline {
+      border-color: var(--border-dark);
+      box-shadow: var(--shadow-card);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--foreground);
+      color: var(--accent);
+    }
+
+    .btn-outline:active {
+      box-shadow: var(--shadow-pressed);
+    }
+
+    .btn-ghost {
+      box-shadow: none;
+      background: transparent;
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      background: var(--muted);
+      box-shadow: var(--shadow-recessed);
+      color: var(--text-primary);
+    }
+
+    .btn-ghost:active {
+      box-shadow: var(--shadow-pressed);
+    }
+
+    /* --- Hero Section --- */
+    .hero-section {
+      padding: 6rem 0 4rem 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-section {
+        grid-template-columns: 1.15fr 0.85fr;
+        padding: 8rem 0 6rem 0;
+      }
+    }
+
+    .hero-description {
+      max-width: 600px;
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    /* --- 3D CSS Device Mockup --- */
+    .device-mockup {
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+      perspective: 1000px;
+    }
+
+    .device-bezel {
+      background: #2d3436; /* Dark ABS plastic */
+      border: 4px solid #1e252b;
+      border-radius: 20px;
+      padding: 24px 24px 32px 24px;
+      position: relative;
+      box-shadow: 15px 15px 30px rgba(0,0,0,0.25), inset 2px 2px 0 rgba(255,255,255,0.1), inset -2px -2px 0 rgba(0,0,0,0.5);
+      transform: rotateX(3deg) rotateY(-3deg);
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .device-bezel:hover {
+      transform: rotateX(0deg) rotateY(0deg) scale(1.02);
+    }
+
+    .carbon-texture {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 16px;
+      background-image: linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%),
+                        linear-gradient(-45deg, rgba(0,0,0,0.15) 25%, transparent 25%),
+                        linear-gradient(45deg, transparent 75%, rgba(0,0,0,0.15) 75%),
+                        linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.15) 75%);
+      background-size: 4px 4px;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    .device-screw {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #555 20%, #1a1a1a 60%, #444 80%);
+      box-shadow: inset 1px 1px 1px rgba(255,255,255,0.2), 1px 1px 2px rgba(0,0,0,0.4);
+    }
+
+    .device-screw.top-left { top: 10px; left: 10px; }
+    .device-screw.top-right { top: 10px; right: 10px; }
+    .device-screw.bottom-left { bottom: 10px; left: 10px; }
+    .device-screw.bottom-right { bottom: 10px; right: 10px; }
+
+    .device-screen-container {
+      background-color: #0f141c;
+      border-radius: 10px;
+      padding: 12px;
+      box-shadow: inset 4px 4px 10px rgba(0,0,0,0.7), 0 1px 1px rgba(255,255,255,0.1);
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      transition: background-color 0.3s ease;
+    }
+
+    .device-screen-container.power-off {
+      background-color: #05070a;
+    }
+
+    .device-screen-container.power-off .device-screen {
+      opacity: 0.05;
+      filter: grayscale(1) contrast(0.5);
+    }
+
+    .device-screen-container.power-off .crt-scanlines {
+      opacity: 0.1;
+    }
+
+    .crt-scanlines {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(rgba(18,16,16,0) 50%, rgba(0,0,0,0.25) 50%);
+      background-size: 100% 4px;
+      z-index: 10;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .device-screen {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      color: #22c55e;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      text-shadow: 0 0 4px rgba(34, 197, 94, 0.4);
+      transition: opacity 0.3s ease, filter 0.3s ease;
+    }
+
+    .screen-header {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(34,197,94,0.3);
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+    }
+
+    .screen-title {
+      font-weight: 700;
+      font-size: 0.6rem;
+      letter-spacing: 0.05em;
+    }
+
+    .screen-status {
+      font-size: 0.6rem;
+      margin-left: 4px;
+      font-weight: 700;
+    }
+
+    .screen-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow: hidden;
+    }
+
+    .screen-console {
+      background: rgba(0,0,0,0.3);
+      padding: 6px;
+      border-radius: 4px;
+      border: 1px solid rgba(34,197,94,0.15);
+      min-height: 70px;
+    }
+
+    .console-line {
+      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 0.65rem;
+    }
+
+    .line-tag {
+      color: #ff4757;
+    }
+
+    .screen-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+    }
+
+    .screen-stat-box {
+      border: 1px solid rgba(34,197,94,0.2);
+      background: rgba(34,197,94,0.03);
+      padding: 4px;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .stat-lbl {
+      font-size: 0.5rem;
+      color: rgba(34,197,94,0.5);
+    }
+
+    .screen-visualizer {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 30px;
+      margin-top: auto;
+      padding-bottom: 2px;
+      border-bottom: 1px dashed rgba(34,197,94,0.3);
+    }
+
+    .viz-bar {
+      flex: 1;
+      background: rgba(34,197,94,0.6);
+      box-shadow: 0 0 6px rgba(34, 197, 94, 0.3);
+      border-radius: 1px 1px 0 0;
+      animation: bar-dance 1.5s infinite alternate ease-in-out;
+    }
+
+    .viz-bar:nth-child(even) {
+      animation-delay: 0.3s;
+      background: #ff4757;
+      box-shadow: 0 0 6px rgba(255, 71, 87, 0.3);
+    }
+
+    .viz-bar:nth-child(3n) { animation-delay: 0.6s; }
+    .viz-bar:nth-child(4n) { animation-delay: 0.1s; }
+
+    @keyframes bar-dance {
+      0% { height: 15%; }
+      100% { height: 95%; }
+    }
+
+    .device-buttons {
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 5;
+    }
+
+    .device-btn {
+      width: 10px;
+      height: 20px;
+      background: #1e252b;
+      border: 1px solid #111;
+      border-radius: 0 3px 3px 0;
+      cursor: pointer;
+      box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      transition: transform 0.1s;
+    }
+
+    .device-btn:active {
+      transform: translateX(-2px);
+    }
+
+    .btn-power {
+      background: #ff4757;
+      height: 14px;
+    }
+
+    /* --- Infinite Marquee System ("Recessed Ticker Slots") --- */
+    .marquee-container {
+      display: flex;
+      overflow: hidden;
+      user-select: none;
+      width: 100%;
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+      background: var(--background);
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.05), 0 1px 0 #ffffff;
+      padding: 1.2rem 0;
+    }
+
+    .marquee-container.bg-accent {
+      background-color: var(--accent);
+      border-top-color: rgba(0,0,0,0.1);
+      border-bottom-color: rgba(0,0,0,0.15);
+      box-shadow: inset 0 3px 6px rgba(0,0,0,0.15);
+    }
+
+    .marquee-track {
+      display: flex;
+      white-space: nowrap;
+      animation: marquee-scroll linear infinite;
+      will-change: transform;
+    }
+
+    .marquee-track.speed-fast {
+      animation-duration: 25s;
+    }
+
+    .marquee-track.speed-medium {
+      animation-duration: 45s;
+    }
+
+    .marquee-text {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      letter-spacing: 0.05em;
+      padding-right: 2rem;
+      display: flex;
+      align-items: center;
+      color: var(--text-primary);
+    }
+
+    .marquee-separator {
+      color: var(--accent);
+      margin: 0 1.5rem;
+    }
+
+    .bg-accent .marquee-separator {
+      color: var(--accent-foreground);
+      opacity: 0.5;
+    }
+
+    .bg-accent .marquee-text {
+      color: var(--accent-foreground);
+    }
+
+    @keyframes marquee-scroll {
+      0% { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+
+    /* --- Work / Portfolio Section --- */
+    .section-wrapper {
+      padding: 6rem 0;
+      border-bottom: 1px solid var(--border-dark);
+      box-shadow: 0 1px 0 #ffffff;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+      }
+    }
+
+    /* Card design - Bolted Modules */
+    .project-card {
+      background-color: var(--background);
+      padding: 2.5rem;
+      border-radius: 16px; /* lg */
+      box-shadow: var(--shadow-card);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 400px;
+      border: 1px solid rgba(255,255,255,0.5);
+      transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 300ms ease;
+    }
+
+    /* Screws for project cards */
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      background-image: 
+        radial-gradient(circle at 14px 14px, var(--border-dark) 1.5px, transparent 2.5px),
+        radial-gradient(circle at calc(100% - 14px) 14px, var(--border-dark) 1.5px, transparent 2.5px),
+        radial-gradient(circle at 14px calc(100% - 14px), var(--border-dark) 1.5px, transparent 2.5px),
+        radial-gradient(circle at calc(100% - 14px) calc(100% - 14px), var(--border-dark) 1.5px, transparent 2.5px);
+    }
+
+    /* Vents for project cards */
+    .card-vents {
+      position: absolute;
+      top: 12px;
+      right: 48px;
+      display: flex;
+      gap: 3px;
+    }
+
+    .vent {
+      width: 3px;
+      height: 14px;
+      border-radius: 9999px;
+      background-color: var(--muted);
+      box-shadow: inset 1px 1px 2px rgba(0,0,0,0.15), inset -1px -1px 2px rgba(255,255,255,0.7);
+    }
+
+    /* Hanging Hole for pricing/card vibe */
+    .card-hanging-hole {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: var(--muted);
+      box-shadow: inset 2px 2px 4px var(--border-shadow), inset -2px -2px 4px var(--border-light);
+    }
+
+    .project-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      margin-top: 0.5rem;
+    }
+
+    .project-card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .project-card-footer {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .project-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    .project-tag {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      background-color: var(--background);
+      box-shadow: var(--shadow-recessed);
+      border-radius: 4px;
+      padding: 0.25rem 0.6rem;
+      color: var(--text-muted);
+    }
+
+    .project-card-arrow {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: var(--background);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: transform 300ms ease, box-shadow 300ms ease, color 300ms ease;
+    }
+
+    /* Card hover interactions */
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-floating);
+    }
+
+    .project-card:hover .project-card-arrow {
+      transform: translate(3px, -3px);
+      box-shadow: var(--shadow-pressed);
+      color: var(--accent);
+    }
+
+    .project-card:hover .card-title {
+      color: var(--accent);
+    }
+
+    .project-card-index {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--border-dark);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.0;
+    }
+
+    /* --- About Section --- */
+    .about-split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    @media (min-width: 1024px) {
+      .about-split {
+        grid-template-columns: 1.25fr 0.75fr;
+        gap: 6rem;
+      }
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .about-graphics {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .graphic-block {
+      background-color: var(--background);
+      border-radius: 16px;
+      box-shadow: var(--shadow-card);
+      padding: 2.2rem;
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+
+    /* Corner screws for graphic-block */
+    .graphic-block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      background-image: 
+        radial-gradient(circle at 12px 12px, var(--border-dark) 1.5px, transparent 2.5px),
+        radial-gradient(circle at calc(100% - 12px) 12px, var(--border-dark) 1.5px, transparent 2.5px),
+        radial-gradient(circle at 12px calc(100% - 12px), var(--border-dark) 1.5px, transparent 2.5px),
+        radial-gradient(circle at calc(100% - 12px) calc(100% - 12px), var(--border-dark) 1.5px, transparent 2.5px);
+    }
+
+    /* Warning Stripe details for manufacturing aesthetic */
+    .warning-stripe {
+      height: 6px;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--accent),
+        var(--accent) 8px,
+        #2d3436 8px,
+        #2d3436 16px
+      );
+      width: 100%;
+      border-radius: 3px;
+      margin-bottom: 1.2rem;
+    }
+
+    .graphic-block .massive-number {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      opacity: 0.25;
+    }
+
+    /* Skills list with recessed chassis connector */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+      list-style: none;
+      padding: 1.5rem;
+      background-color: var(--background);
+      border-radius: 12px;
+      box-shadow: var(--shadow-recessed);
+    }
+
+    @media (max-width: 480px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .skill-item {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      background: var(--background);
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(255,255,255,0.4);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: transform 150ms ease, color 150ms ease;
+    }
+
+    .skill-item:hover {
+      transform: translateX(4px);
+      color: var(--accent);
+    }
+
+    .skill-item::after {
+      content: '●';
+      color: var(--accent);
+      font-size: 0.65rem;
+      box-shadow: 0 0 6px rgba(255, 71, 87, 0.4);
+    }
+
+    /* --- Contact Form Section --- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    @media (min-width: 1024px) {
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+      }
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .form-group {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-label {
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    /* Recessed well inputs */
+    .form-input {
+      height: 54px;
+      background: var(--background);
+      border: none;
+      box-shadow: var(--shadow-recessed);
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px; /* md */
+      width: 100%;
+      transition: box-shadow 150ms ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      box-shadow: var(--shadow-recessed), 0 0 0 2px var(--accent);
+    }
+
+    .form-input::placeholder {
+      color: var(--text-muted);
+      opacity: 0.4;
+      text-transform: none;
+    }
+
+    /* Textarea specific */
+    textarea.form-input {
+      height: 120px;
+      resize: none;
+      padding-top: 1rem;
+    }
+
+    .contact-info-block {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .contact-item {
+      border-left: 3px solid var(--accent);
+      padding-left: 1.5rem;
+    }
+
+    .contact-item-title {
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-item-content {
+      font-family: var(--font-sans);
+      font-size: clamp(1.2rem, 2vw, 1.8rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      text-decoration: none;
+      display: inline-block;
+      transition: color 150ms ease;
+    }
+
+    .contact-item-content:hover {
+      color: var(--accent);
+    }
+
+    /* --- Footer Area --- */
+    footer {
+      padding: 4rem 0;
+      border-top: 1px solid var(--border-dark);
+      background-color: var(--background);
+      box-shadow: inset 0 1px 0 #ffffff;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-logo {
+      font-family: var(--font-mono);
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    .footer-link {
+      font-family: var(--font-sans);
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      transition: background-color 150ms ease, color 150ms ease, box-shadow 150ms ease;
+    }
+
+    .footer-link:hover {
+      color: var(--text-primary);
+      background-color: var(--foreground);
+      box-shadow: var(--shadow-recessed);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border-dark);
+      padding-top: 2rem;
+      box-shadow: inset 0 1px 0 #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .copyright {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* Back to Top button styled as a physical push dial */
+    .btn-top {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border-dark);
+      background: var(--background);
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-card);
+      transition: transform 150ms cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 150ms ease, color 150ms ease;
+    }
+
+    .btn-top:hover {
+      color: var(--accent);
+    }
+
+    .btn-top:active {
+      transform: translateY(2px);
+      box-shadow: var(--shadow-pressed);
+    }
+
+    /* --- Accessibility Adjustments --- */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+      }
+
+      .marquee-track {
+        animation: none !important;
+        flex-wrap: wrap;
+        white-space: normal;
+      }
+
+      .custom-cursor {
+        display: none;
+      }
+
+      * {
+        cursor: auto !important;
+      }
+
+      .device-bezel {
+        transform: none !important;
+      }
+
+      .viz-bar {
+        animation: none !important;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-  <!-- SVG Noise Overlay for Poster Texture -->
+  <!-- SVG Noise Overlay for Matte Texture -->
   <svg class="noise-overlay" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <filter id="noiseFilter">
-      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch" />
-      <feColorMatrix type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.07 0" />
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="4" stitchTiles="stitch" />
+      <feColorMatrix type="matrix" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.12 0" />
     </filter>
     <rect width="100%" height="100%" filter="url(#noiseFilter)" />
   </svg>
 
-  <!-- Custom Brutalist Cursor -->
+  <!-- Custom Target Reticle Cursor -->
   <div class="custom-cursor" id="custom-cursor" aria-hidden="true"></div>
 
   <!-- Header Section -->
   <header>
     <div class="container-wide nav-container">
       <a href="#" class="nav-logo" id="logo">REZA<span>.</span>K</a>
-      <nav>
+      <nav style="display: flex; align-items: center;">
         <ul class="nav-links">
           <li><a href="#work" class="nav-link" id="nav-work-link">Work</a></li>
           <li><a href="#about" class="nav-link" id="nav-about-link">About</a></li>
           <li><a href="#contact" class="nav-link" id="nav-contact-link">Contact</a></li>
         </ul>
+        <div class="header-status">
+          <span class="led led-green"></span>
+          <span>SYS ONLINE</span>
+        </div>
       </nav>
     </div>
   </header>
@@ -794,22 +1250,80 @@ footer {
   <main>
     <!-- Hero Section -->
     <section class="container-wide hero-section">
-      <div>
-        <span class="label-text">UI & FRONTEND DEVELOPER</span>
-      </div>
-      <div>
-        <h1 class="uppercase-display hero-title">
-          KINETIC<br>DEVELOPER
+      <div class="hero-content">
+        <span class="label-text">UI &amp; FRONTEND ARCHITECT</span>
+        <h1 class="uppercase-display hero-title" style="margin-top: 1rem;">
+          INDUSTRIAL<br>DEVELOPER
         </h1>
+        <div class="hero-description">
+          <p class="body-text">
+            Saya merancang dan membangun antarmuka web dengan estetika industrial realism yang taktil, presisi mekanis yang tinggi, dan performa yang optimal.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <a href="#work" class="btn btn-primary" id="hero-cta-work">
+            <i data-lucide="cpu" style="width: 18px; height: 18px;"></i> Lihat Karya
+          </a>
+          <a href="#contact" class="btn btn-outline" id="hero-cta-contact">
+            <i data-lucide="send" style="width: 18px; height: 18px;"></i> Hubungi Saya
+          </a>
+        </div>
       </div>
-      <div class="hero-description">
-        <p class="body-text">
-          Saya merancang dan membangun situs web dengan estetika brutalist yang berani, interaksi kinetik yang hidup, dan performa tingkat tinggi.
-        </p>
-      </div>
-      <div class="hero-actions">
-        <a href="#work" class="btn btn-primary" id="hero-cta-work">Lihat Karya</a>
-        <a href="#contact" class="btn btn-outline" id="hero-cta-contact">Hubungi Saya</a>
+      <!-- 3D CSS Device Mockup -->
+      <div class="device-mockup">
+        <div class="device-bezel">
+          <div class="carbon-texture"></div>
+          <div class="device-screw top-left"></div>
+          <div class="device-screw top-right"></div>
+          <div class="device-screw bottom-left"></div>
+          <div class="device-screw bottom-right"></div>
+          <div class="device-screen-container">
+            <div class="crt-scanlines"></div>
+            <div class="device-screen">
+              <div class="screen-header">
+                <div class="screen-title">MONITOR // REZA_OS_v1.2</div>
+                <span class="led led-green animate-pulse" style="width: 8px; height: 8px; margin-left: auto;"></span>
+                <span class="screen-status">SYS ACTIVE</span>
+              </div>
+              <div class="screen-body">
+                <div class="screen-console">
+                  <p class="console-line"><span class="line-tag">[SYS]</span> BOOTING SUCCESSFUL</p>
+                  <p class="console-line"><span class="line-tag">[A11y]</span> WCAG AAA COMPLIANT</p>
+                  <p class="console-line"><span class="line-tag">[OK]</span> MEMORY OPTIMAL</p>
+                  <p class="console-line"><span class="line-tag">[RUN]</span> index.html --watch</p>
+                </div>
+                <div class="screen-stats-grid">
+                  <div class="screen-stat-box">
+                    <div class="stat-num" id="live-uptime">99.9%</div>
+                    <div class="stat-lbl">UPTIME</div>
+                  </div>
+                  <div class="screen-stat-box">
+                    <div class="stat-num">0.8s</div>
+                    <div class="stat-lbl">SPEED</div>
+                  </div>
+                  <div class="screen-stat-box">
+                    <div class="stat-num">100%</div>
+                    <div class="stat-lbl">SEO</div>
+                  </div>
+                </div>
+                <div class="screen-visualizer">
+                  <div class="viz-bar" style="height: 30%"></div>
+                  <div class="viz-bar" style="height: 65%"></div>
+                  <div class="viz-bar" style="height: 45%"></div>
+                  <div class="viz-bar" style="height: 80%"></div>
+                  <div class="viz-bar" style="height: 25%"></div>
+                  <div class="viz-bar" style="height: 50%"></div>
+                  <div class="viz-bar" style="height: 40%"></div>
+                  <div class="viz-bar" style="height: 70%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="device-buttons">
+            <div class="device-btn btn-power" id="device-power-btn" title="Power Toggle"></div>
+            <div class="device-btn btn-adjust" id="device-adjust-btn" title="Adjust Contrast"></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -819,13 +1333,13 @@ footer {
         <div class="marquee-text">
           CREATIVE DEVELOPER <span class="marquee-separator">//</span>
           UI ARCHITECT <span class="marquee-separator">//</span>
-          BRUTALIST AESTHETICS <span class="marquee-separator">//</span>
+          INDUSTRIAL SKEUOMORPHISM <span class="marquee-separator">//</span>
           ACCESSIBLE CODE <span class="marquee-separator">//</span>
         </div>
         <div class="marquee-text">
           CREATIVE DEVELOPER <span class="marquee-separator">//</span>
           UI ARCHITECT <span class="marquee-separator">//</span>
-          BRUTALIST AESTHETICS <span class="marquee-separator">//</span>
+          INDUSTRIAL SKEUOMORPHISM <span class="marquee-separator">//</span>
           ACCESSIBLE CODE <span class="marquee-separator">//</span>
         </div>
       </div>
@@ -836,13 +1350,19 @@ footer {
       <div class="container-wide">
         <span class="label-text">KARYA PILIHAN // ARCHIVE</span>
         <h2 class="uppercase-display section-heading">SELECTED WORKS</h2>
-        
+
         <div class="projects-grid">
           <!-- Project 01 -->
           <article class="project-card" tabindex="0" id="project-1">
+            <div class="card-vents">
+              <span class="vent"></span>
+              <span class="vent"></span>
+              <span class="vent"></span>
+            </div>
+            <div class="card-hanging-hole"></div>
             <div class="project-card-header">
               <span class="project-card-index">01</span>
-              <span class="label-text" style="color: var(--muted-foreground)">WEB APP / 2025</span>
+              <span class="label-text" style="color: var(--text-muted)">WEB APP // 2025</span>
             </div>
             <div class="project-card-body">
               <h3 class="uppercase-display card-title">DEFI PROTOCOL INTERFACE</h3>
@@ -854,15 +1374,23 @@ footer {
                 <li class="project-tag">CSS Grid</li>
                 <li class="project-tag">Vanilla JS</li>
               </ul>
-              <span class="project-card-arrow" aria-hidden="true">↗</span>
+              <span class="project-card-arrow" aria-hidden="true">
+                <i data-lucide="arrow-up-right" style="width: 18px; height: 18px;"></i>
+              </span>
             </div>
           </article>
 
           <!-- Project 02 -->
           <article class="project-card" tabindex="0" id="project-2">
+            <div class="card-vents">
+              <span class="vent"></span>
+              <span class="vent"></span>
+              <span class="vent"></span>
+            </div>
+            <div class="card-hanging-hole"></div>
             <div class="project-card-header">
               <span class="project-card-index">02</span>
-              <span class="label-text" style="color: var(--muted-foreground)">E-COMMERCE / 2026</span>
+              <span class="label-text" style="color: var(--text-muted)">E-COMMERCE // 2026</span>
             </div>
             <div class="project-card-body">
               <h3 class="uppercase-display card-title">KINETIC BRAND STORE</h3>
@@ -870,51 +1398,69 @@ footer {
             </div>
             <div class="project-card-footer">
               <ul class="project-tags">
-                <li class="project-tag">Web Audio API</li>
-                <li class="project-tag">Intersection Observer</li>
+                <li class="project-tag">Web Audio</li>
+                <li class="project-tag">Observer</li>
                 <li class="project-tag">A11y</li>
               </ul>
-              <span class="project-card-arrow" aria-hidden="true">↗</span>
+              <span class="project-card-arrow" aria-hidden="true">
+                <i data-lucide="arrow-up-right" style="width: 18px; height: 18px;"></i>
+              </span>
             </div>
           </article>
 
           <!-- Project 03 -->
           <article class="project-card" tabindex="0" id="project-3">
+            <div class="card-vents">
+              <span class="vent"></span>
+              <span class="vent"></span>
+              <span class="vent"></span>
+            </div>
+            <div class="card-hanging-hole"></div>
             <div class="project-card-header">
               <span class="project-card-index">03</span>
-              <span class="label-text" style="color: var(--muted-foreground)">3D INTERACTIVE / 2026</span>
+              <span class="label-text" style="color: var(--text-muted)">3D INTERACTIVE // 2026</span>
             </div>
             <div class="project-card-body">
-              <h3 class="uppercase-display card-title">NEO-BRUTALIST AUDIO SYNTH</h3>
-              <p class="body-text">Aplikasi synthesizer audio di peramban web dengan antarmuka grafis retro, keyboard interaktif, dan visualizer audio.</p>
+              <h3 class="uppercase-display card-title">INDUSTRIAL AUDIO SYNTH</h3>
+              <p class="body-text">Aplikasi synthesizer audio di peramban web dengan antarmuka grafis taktil, tombol fungsional, dan visualizer audio.</p>
             </div>
             <div class="project-card-footer">
               <ul class="project-tags">
                 <li class="project-tag">Canvas 2D</li>
-                <li class="project-tag">SVG Filter</li>
-                <li class="project-tag">Web API</li>
+                <li class="project-tag">Web Audio</li>
+                <li class="project-tag">Skeuomorphic</li>
               </ul>
-              <span class="project-card-arrow" aria-hidden="true">↗</span>
+              <span class="project-card-arrow" aria-hidden="true">
+                <i data-lucide="arrow-up-right" style="width: 18px; height: 18px;"></i>
+              </span>
             </div>
           </article>
 
           <!-- Project 04 -->
           <article class="project-card" tabindex="0" id="project-4">
+            <div class="card-vents">
+              <span class="vent"></span>
+              <span class="vent"></span>
+              <span class="vent"></span>
+            </div>
+            <div class="card-hanging-hole"></div>
             <div class="project-card-header">
               <span class="project-card-index">04</span>
-              <span class="label-text" style="color: var(--muted-foreground)">PORTFOLIO / 2026</span>
+              <span class="label-text" style="color: var(--text-muted)">PORTFOLIO // 2026</span>
             </div>
             <div class="project-card-body">
-              <h3 class="uppercase-display card-title">THE DESIGN POSTER ENGINE</h3>
-              <p class="body-text">Sistem publikasi web bertema poster Swiss modern yang sepenuhnya diatur dengan fluid typography dan CSS Grid.</p>
+              <h3 class="uppercase-display card-title">THE DEVICE GENERATOR</h3>
+              <p class="body-text">Sistem publikasi web bertema komponen mekanis yang sepenuhnya diatur dengan layout neumorphic dan CSS Grid.</p>
             </div>
             <div class="project-card-footer">
               <ul class="project-tags">
-                <li class="project-tag">Fluid Typography</li>
-                <li class="project-tag">CSS Variables</li>
-                <li class="project-tag">SEO Optimized</li>
+                <li class="project-tag">CSS 3D</li>
+                <li class="project-tag">Neumorphism</li>
+                <li class="project-tag">SEO Opt</li>
               </ul>
-              <span class="project-card-arrow" aria-hidden="true">↗</span>
+              <span class="project-card-arrow" aria-hidden="true">
+                <i data-lucide="arrow-up-right" style="width: 18px; height: 18px;"></i>
+              </span>
             </div>
           </article>
         </div>
@@ -942,43 +1488,45 @@ footer {
     <!-- About Section -->
     <section class="section-wrapper" id="about">
       <div class="container-wide">
-        <span class="label-text">FILOSOFI & KEMAMPUAN</span>
+        <span class="label-text">FILOSOFI &amp; KEMAMPUAN</span>
         <h2 class="uppercase-display section-heading">ABOUT ME</h2>
-        
+
         <div class="about-split">
           <div class="about-content">
-            <h3 class="uppercase-display card-title" style="line-height: 1.1;">
-              SAYA MENGHANCURKAN TAMPILAN WEB YANG MONOTON DENGAN ENERGI DESAIN KINETIK.
+            <h3 class="uppercase-display card-title" style="line-height: 1.2;">
+              SAYA MENGHANCURKAN TAMPILAN WEB YANG MONOTON DENGAN PRESISE REKAYASA ANTARMUKA.
             </h3>
             <p class="body-text">
-              Berbasis di Jakarta, Indonesia, saya bekerja sama dengan desainer dan pengembang untuk mewujudkan produk digital yang berani dan mudah diakses oleh siapa saja.
+              Berbasis di Jakarta, Indonesia, saya bekerja sama dengan desainer dan pengembang untuk mewujudkan produk digital yang taktil, fungsional, dan mudah diakses oleh siapa saja.
             </p>
             <p class="body-text">
-              Saya percaya tipografi bukan sekadar dekorasi, melainkan elemen struktural utama yang menghidupkan pesan Anda pada setiap piksel layar.
+              Saya percaya kegunaan visual dan rekayasa detail bukan sekadar dekorasi, melainkan elemen struktural utama yang menghidupkan pengalaman pengguna pada setiap piksel layar.
             </p>
-            
+
             <ul class="skills-grid">
               <li class="skill-item">Semantic HTML</li>
               <li class="skill-item">Custom Web Animations</li>
-              <li class="skill-item">CSS Grid & Flexbox</li>
+              <li class="skill-item">CSS Grid &amp; Flexbox</li>
               <li class="skill-item">UI/UX Design Systems</li>
               <li class="skill-item">Accessibility (A11y)</li>
               <li class="skill-item">Responsive Architecture</li>
             </ul>
           </div>
-          
+
           <div class="about-graphics">
             <div class="graphic-block">
+              <div class="warning-stripe"></div>
               <span class="massive-number" aria-hidden="true">01</span>
-              <h4 class="uppercase-display card-title" style="margin-bottom: 1rem;">VISI</h4>
-              <p class="body-text" style="font-size: 1.1rem;">
-                Membangun antarmuka yang membekas secara visual, cepat saat dimuat, dan menyenangkan untuk dijelajahi.
+              <h4 class="uppercase-display card-title" style="margin-bottom: 0.8rem;">VISI</h4>
+              <p class="body-text" style="font-size: 0.95rem;">
+                Membangun antarmuka taktil yang solid, handal, cepat saat dimuat, dan menyenangkan untuk dijelajahi.
               </p>
             </div>
             <div class="graphic-block">
+              <div class="warning-stripe"></div>
               <span class="massive-number" aria-hidden="true">02</span>
-              <h4 class="uppercase-display card-title" style="margin-bottom: 1rem;">AKSESIBILITAS</h4>
-              <p class="body-text" style="font-size: 1.1rem;">
+              <h4 class="uppercase-display card-title" style="margin-bottom: 0.8rem;">AKSESIBILITAS</h4>
+              <p class="body-text" style="font-size: 0.95rem;">
                 Kontras warna optimal (WCAG AAA) dan dukungan penuh untuk navigasi keyboard serta pembaca layar.
               </p>
             </div>
@@ -992,13 +1540,13 @@ footer {
       <div class="marquee-track speed-medium">
         <div class="marquee-text">
           "DEVELOPER DENGAN PANDANGAN VISUAL TERBAIK" - CEO ALPHA <span class="marquee-separator">//</span>
-          "TRANSISI DI WEBSITE SANGAT HALUS DAN CEPAT" - DESIGN LEAD BETA <span class="marquee-separator">//</span>
-          "DESAIN YANG SANGAT BERANI DAN BERBEDA DARI LAINNYA" - FOUNDER GAMMA <span class="marquee-separator">//</span>
+          "TRANSISI DI WEBSITE SANGAT HALUS DAN TACTILE" - DESIGN LEAD BETA <span class="marquee-separator">//</span>
+          "DESAIN YANG SANGAT BERANI DAN SEPERTI MESIN FISIK" - FOUNDER GAMMA <span class="marquee-separator">//</span>
         </div>
         <div class="marquee-text">
           "DEVELOPER DENGAN PANDANGAN VISUAL TERBAIK" - CEO ALPHA <span class="marquee-separator">//</span>
-          "TRANSISI DI WEBSITE SANGAT HALUS DAN CEPAT" - DESIGN LEAD BETA <span class="marquee-separator">//</span>
-          "DESAIN YANG SANGAT BERANI DAN BERBEDA DARI LAINNYA" - FOUNDER GAMMA <span class="marquee-separator">//</span>
+          "TRANSISI DI WEBSITE SANGAT HALUS DAN TACTILE" - DESIGN LEAD BETA <span class="marquee-separator">//</span>
+          "DESAIN YANG SANGAT BERANI DAN SEPERTI MESIN FISIK" - FOUNDER GAMMA <span class="marquee-separator">//</span>
         </div>
       </div>
     </div>
@@ -1008,39 +1556,42 @@ footer {
       <div class="container-wide">
         <span class="label-text">HUBUNGI SAYA // KOLABORASI</span>
         <h2 class="uppercase-display section-heading">START A PROJECT</h2>
-        
+
         <div class="contact-grid">
           <form class="contact-form" id="contact-form" action="#" method="POST">
             <div class="form-group">
               <label for="name" class="form-label">Nama Anda</label>
               <input type="text" id="name" name="name" class="form-input" placeholder="REZA KURNIAWAN" required>
             </div>
-            
+
             <div class="form-group">
               <label for="email" class="form-label">Alamat Email</label>
-              <input type="email" id="email" name="email" class="form-input" placeholder="HELLO@REZA.DEV" required>
+              <input type="email" id="email" name="email" class="form-input" placeholder="hello@reza.dev" required>
             </div>
-            
+
             <div class="form-group">
               <label for="message" class="form-label">Detail Proyek</label>
-              <input type="text" id="message" name="message" class="form-input" placeholder="TULIS DETAIL DISINI..." required>
+              <textarea id="message" name="message" class="form-input" placeholder="Ceritakan detail proyek Anda disini..." required></textarea>
             </div>
-            
-            <button type="submit" class="btn btn-primary" style="align-self: flex-start; height: 72px; padding: 0 3rem;" id="submit-btn">
-              Kirim Pesan
+
+            <button type="submit" class="btn btn-primary" style="align-self: flex-start; height: 52px; padding: 0 2rem;"
+              id="submit-btn">
+              <i data-lucide="power" style="width: 18px; height: 18px;"></i> Kirim Transmisi
             </button>
           </form>
-          
+
           <div class="contact-info-block">
             <div class="contact-item">
               <p class="contact-item-title">E-mail Langsung</p>
               <a href="mailto:hello@reza.dev" class="contact-item-content" id="email-link">hello@reza.dev</a>
             </div>
-            
+
             <div class="contact-item">
               <p class="contact-item-title">Social / Networks</p>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-item-content" style="display: block; margin-bottom: 0.5rem;" id="social-github">GitHub</a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-item-content" style="display: block;" id="social-linkedin">LinkedIn</a>
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-item-content"
+                style="display: block; margin-bottom: 0.5rem;" id="social-github">GitHub</a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-item-content"
+                style="display: block;" id="social-linkedin">LinkedIn</a>
             </div>
 
             <div class="contact-item">
@@ -1066,193 +1617,278 @@ footer {
           <li><a href="#contact" class="footer-link" id="footer-contact-link">Contact</a></li>
         </ul>
       </div>
-      
+
       <div class="footer-bottom">
         <p class="copyright">
-          &copy; 2026 Reza Kurniawan. All rights reserved. Dibuat dengan antarmuka Kinetik.
+          &copy; 2026 Reza Kurniawan. All rights reserved. Dibuat dengan rekayasa Industrial Skeuomorphism.
         </p>
-        <button class="btn-top" id="scroll-to-top" aria-label="Scroll ke atas">↑</button>
+        <button class="btn-top" id="scroll-to-top" aria-label="Scroll ke atas">
+          <i data-lucide="arrow-up" style="width: 20px; height: 20px;"></i>
+        </button>
       </div>
     </div>
   </footer>
 
   <script>
-document.addEventListener('DOMContentLoaded', () => {
-  // --- Custom Cursor ---
-  const cursor = document.getElementById('custom-cursor');
-  let mouseX = 0;
-  let mouseY = 0;
-  let cursorX = 0;
-  let cursorY = 0;
-  let isMoving = false;
-
-  // Tracking position with mousemove
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    
-    // Show cursor on first movement
-    if (!isMoving) {
-      cursor.style.opacity = '1';
-      isMoving = true;
-    }
-  });
-
-  // Smooth lerp movement animation loop
-  function updateCursor() {
-    const dx = mouseX - cursorX;
-    const dy = mouseY - cursorY;
-    
-    // Speed factor: 0.15 for smooth drag
-    cursorX += dx * 0.15;
-    cursorY += dy * 0.15;
-    
-    cursor.style.left = `${cursorX}px`;
-    cursor.style.top = `${cursorY}px`;
-    
-    requestAnimationFrame(updateCursor);
-  }
-  
-  // Hide cursor on mouse leave window
-  document.addEventListener('mouseleave', () => {
-    cursor.style.opacity = '0';
-    isMoving = false;
-  });
-
-  document.addEventListener('mouseenter', () => {
-    cursor.style.opacity = '1';
-    isMoving = true;
-  });
-
-  // Trigger loop
-  updateCursor();
-
-  // --- Interaction States ---
-  const hoverTargets = 'a, button, input, [tabindex="0"], .project-card';
-  
-  function refreshHoverListeners() {
-    document.querySelectorAll(hoverTargets).forEach(el => {
-      // Hover scaling
-      el.addEventListener('mouseenter', () => {
-        cursor.classList.add('hovering');
-      });
-      el.addEventListener('mouseleave', () => {
-        cursor.classList.remove('hovering');
-      });
-    });
-  }
-  refreshHoverListeners();
-
-  // Click scaling
-  document.addEventListener('mousedown', () => {
-    cursor.classList.add('clicking');
-  });
-
-  document.addEventListener('mouseup', () => {
-    cursor.classList.remove('clicking');
-  });
-
-  // --- Accessibility: prefers-reduced-motion Check ---
-  const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-  
-  function handleMotionPreference() {
-    if (motionQuery.matches) {
-      cursor.style.display = 'none';
-      // Restore default cursor styles to all elements
-      document.documentElement.style.cursor = 'auto';
-      const styleTag = document.createElement('style');
-      styleTag.id = 'reduced-motion-cursor';
-      styleTag.innerHTML = `* { cursor: auto !important; }`;
-      document.head.appendChild(styleTag);
-    } else {
-      cursor.style.display = 'block';
-      document.documentElement.style.cursor = 'none';
-      const styleTag = document.getElementById('reduced-motion-cursor');
-      if (styleTag) styleTag.remove();
-    }
-  }
-  
-  handleMotionPreference();
-  motionQuery.addEventListener('change', handleMotionPreference);
-
-  // --- Scroll-to-Top Handler ---
-  const scrollToTopBtn = document.getElementById('scroll-to-top');
-  if (scrollToTopBtn) {
-    scrollToTopBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
-
-  // --- Contact Form Handling ---
-  const contactForm = document.getElementById('contact-form');
-  const submitBtn = document.getElementById('submit-btn');
-
-  if (contactForm && submitBtn) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const originalText = submitBtn.innerText;
-      
-      // Brutalist success reaction state
-      submitBtn.innerText = 'TERKIRIM!';
-      submitBtn.style.backgroundColor = 'var(--foreground)';
-      submitBtn.style.color = 'var(--accent-foreground)';
-      submitBtn.style.borderColor = 'var(--foreground)';
-      
-      // Reset form fields
-      contactForm.reset();
-      
-      // Return to original state after 3 seconds
-      setTimeout(() => {
-        submitBtn.innerText = originalText;
-        submitBtn.style.backgroundColor = '';
-        submitBtn.style.color = '';
-        submitBtn.style.borderColor = '';
-      }, 3000);
-    });
-  }
-
-  // --- Scroll Entrance Animation with Intersection Observer ---
-  const revealOptions = {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
-  };
-
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        observer.unobserve(entry.target);
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
       }
+
+      // --- Custom Cursor (Precision Target Reticle) ---
+      const cursor = document.getElementById('custom-cursor');
+      let mouseX = 0;
+      let mouseY = 0;
+      let cursorX = 0;
+      let cursorY = 0;
+      let isMoving = false;
+
+      // Tracking position with mousemove
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        // Show cursor on first movement
+        if (!isMoving) {
+          cursor.style.opacity = '1';
+          isMoving = true;
+        }
+      });
+
+      // Smooth lerp movement animation loop
+      function updateCursor() {
+        const dx = mouseX - cursorX;
+        const dy = mouseY - cursorY;
+
+        // Speed factor: 0.15 for smooth drag
+        cursorX += dx * 0.15;
+        cursorY += dy * 0.15;
+
+        cursor.style.left = `${cursorX}px`;
+        cursor.style.top = `${cursorY}px`;
+
+        requestAnimationFrame(updateCursor);
+      }
+
+      // Hide cursor on mouse leave window
+      document.addEventListener('mouseleave', () => {
+        cursor.style.opacity = '0';
+        isMoving = false;
+      });
+
+      document.addEventListener('mouseenter', () => {
+        cursor.style.opacity = '1';
+        isMoving = true;
+      });
+
+      // Trigger loop
+      updateCursor();
+
+      // --- Interaction States ---
+      const hoverTargets = 'a, button, input, textarea, [tabindex="0"], .project-card, .device-btn';
+
+      function refreshHoverListeners() {
+        document.querySelectorAll(hoverTargets).forEach(el => {
+          // Hover scaling
+          el.addEventListener('mouseenter', () => {
+            cursor.classList.add('hovering');
+          });
+          el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hovering');
+          });
+        });
+      }
+      refreshHoverListeners();
+
+      // Click scaling
+      document.addEventListener('mousedown', () => {
+        cursor.classList.add('clicking');
+      });
+
+      document.addEventListener('mouseup', () => {
+        cursor.classList.remove('clicking');
+      });
+
+      // --- 3D CSS Device Mockup Power & Control Panel ---
+      const powerBtn = document.getElementById('device-power-btn');
+      const adjustBtn = document.getElementById('device-adjust-btn');
+      const screenContainer = document.querySelector('.device-screen-container');
+      const consoleEl = document.querySelector('.screen-console');
+      const uptimeNum = document.getElementById('live-uptime');
+      
+      let isPowerOn = true;
+      let currentScreenMode = 0;
+
+      if (powerBtn && screenContainer) {
+        powerBtn.addEventListener('click', () => {
+          isPowerOn = !isPowerOn;
+          screenContainer.classList.toggle('power-off');
+          const bezelLed = powerBtn.closest('.device-bezel').querySelector('.led');
+          
+          if (!isPowerOn) {
+            if (bezelLed) {
+              bezelLed.classList.remove('led-green');
+              bezelLed.classList.add('led-orange');
+            }
+          } else {
+            if (bezelLed) {
+              bezelLed.classList.remove('led-orange');
+              bezelLed.classList.add('led-green');
+            }
+          }
+        });
+      }
+
+      if (adjustBtn && consoleEl) {
+        adjustBtn.addEventListener('click', () => {
+          if (!isPowerOn) return;
+          currentScreenMode = (currentScreenMode + 1) % 3;
+          
+          if (currentScreenMode === 0) {
+            consoleEl.innerHTML = `
+              <p class="console-line"><span class="line-tag">[SYS]</span> REBOOTING SUCCESSFUL</p>
+              <p class="console-line"><span class="line-tag">[A11y]</span> WCAG AAA COMPLIANT</p>
+              <p class="console-line"><span class="line-tag">[OK]</span> MEMORY OPTIMAL</p>
+              <p class="console-line"><span class="line-tag">[RUN]</span> index.html --watch</p>
+            `;
+          } else if (currentScreenMode === 1) {
+            consoleEl.innerHTML = `
+              <p class="console-line"><span class="line-tag">[HUD]</span> CALIBRATING CONTRAST</p>
+              <p class="console-line"><span class="line-tag">[SYS]</span> LIGHT: 45° TOP-LEFT</p>
+              <p class="console-line"><span class="line-tag">[OK]</span> SHADOWS ADJUSTED</p>
+              <p class="console-line"><span class="line-tag">[SYS]</span> GRID DENS: 40px * 40px</p>
+            `;
+          } else {
+            consoleEl.innerHTML = `
+              <p class="console-line"><span class="line-tag">[STAT]</span> CPU TEMPERATURE: 38°C</p>
+              <p class="console-line"><span class="line-tag">[STAT]</span> POWER INFLOW: 240V</p>
+              <p class="console-line"><span class="line-tag">[SYS]</span> RETINA RENDER ACTIVE</p>
+              <p class="console-line"><span class="line-tag">[OK]</span> DIAGNOSTIC COMPLETED</p>
+            `;
+          }
+        });
+      }
+
+      // Live diagnostic ticker for screen uptime
+      let seconds = 0;
+      setInterval(() => {
+        if (isPowerOn && uptimeNum) {
+          seconds += 1;
+          const hrs = Math.floor(seconds / 3600);
+          const mins = Math.floor((seconds % 3600) / 60);
+          const secs = seconds % 60;
+          uptimeNum.innerText = `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+      }, 1000);
+
+      // --- Accessibility: prefers-reduced-motion Check ---
+      const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      function handleMotionPreference() {
+        if (motionQuery.matches) {
+          cursor.style.display = 'none';
+          document.documentElement.style.cursor = 'auto';
+          const styleTag = document.createElement('style');
+          styleTag.id = 'reduced-motion-cursor';
+          styleTag.innerHTML = `* { cursor: auto !important; }`;
+          document.head.appendChild(styleTag);
+        } else {
+          cursor.style.display = 'block';
+          document.documentElement.style.cursor = 'none';
+          const styleTag = document.getElementById('reduced-motion-cursor');
+          if (styleTag) styleTag.remove();
+        }
+      }
+
+      handleMotionPreference();
+      motionQuery.addEventListener('change', handleMotionPreference);
+
+      // --- Scroll-to-Top Handler ---
+      const scrollToTopBtn = document.getElementById('scroll-to-top');
+      if (scrollToTopBtn) {
+        scrollToTopBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+
+      // --- Contact Form Handling ---
+      const contactForm = document.getElementById('contact-form');
+      const submitBtn = document.getElementById('submit-btn');
+
+      if (contactForm && submitBtn) {
+        contactForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const originalHTML = submitBtn.innerHTML;
+
+          // Tactile success reaction state
+          submitBtn.innerHTML = '<i data-lucide="check-circle" style="width: 18px; height: 18px;"></i> TRANSMITED!';
+          submitBtn.style.backgroundColor = 'var(--text-primary)';
+          submitBtn.style.color = 'var(--background)';
+          submitBtn.style.boxShadow = 'var(--shadow-pressed)';
+          
+          if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+          }
+
+          // Reset form fields
+          contactForm.reset();
+
+          // Return to original state after 3 seconds
+          setTimeout(() => {
+            submitBtn.innerHTML = originalHTML;
+            submitBtn.style.backgroundColor = '';
+            submitBtn.style.color = '';
+            submitBtn.style.boxShadow = '';
+            if (typeof lucide !== 'undefined') {
+              lucide.createIcons();
+            }
+          }, 3000);
+        });
+      }
+
+      // --- Scroll Entrance Animation with Intersection Observer ---
+      const revealOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, revealOptions);
+
+      // Add dynamic entry animation styles to document head
+      const animationStyles = document.createElement('style');
+      animationStyles.innerHTML = `
+        .reveal-item {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-item.revealed {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `;
+      document.head.appendChild(animationStyles);
+
+      // Apply scroll reveal animations to headings and graphic blocks
+      const itemsToReveal = document.querySelectorAll('.section-heading, .graphic-block, .about-content > h3, .about-content > p, .contact-item, .project-card');
+      itemsToReveal.forEach(item => {
+        item.classList.add('reveal-item');
+        revealObserver.observe(item);
+      });
     });
-  }, revealOptions);
-
-  // We add dynamic entry animation styles to document head
-  const animationStyles = document.createElement('style');
-  animationStyles.innerHTML = `
-    .reveal-item {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .reveal-item.revealed {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  `;
-  document.head.appendChild(animationStyles);
-
-  // Apply scroll reveal animations to headings and graphic blocks
-  const itemsToReveal = document.querySelectorAll('.section-heading, .graphic-block, .about-content > h3, .about-content > p, .contact-item');
-  itemsToReveal.forEach(item => {
-    item.classList.add('reveal-item');
-    revealObserver.observe(item);
-  });
-});
   </script>
 </body>
+
 </html>
