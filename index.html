@@ -10,7 +10,9 @@
   <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet">
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
@@ -21,7 +23,8 @@
       --muted: #d1d9e6;
       --text-primary: #2d3436;
       --text-muted: #4a5568;
-      --accent: #ff4757; /* Braun Safety Orange */
+      --accent: #ff4757;
+      /* Braun Safety Orange */
       --accent-foreground: #ffffff;
       --border-shadow: #babecc;
       --border-light: #ffffff;
@@ -29,7 +32,7 @@
 
       /* Neumorphic Shadow system */
       --shadow-card: 8px 8px 16px var(--border-shadow), -8px -8px 16px var(--border-light);
-      --shadow-floating: 12px 12px 24px var(--border-shadow), -12px -12px 24px var(--border-light), inset 1px 1px 0 rgba(255,255,255,0.5);
+      --shadow-floating: 12px 12px 24px var(--border-shadow), -12px -12px 24px var(--border-light), inset 1px 1px 0 rgba(255, 255, 255, 0.5);
       --shadow-pressed: inset 6px 6px 12px var(--border-shadow), inset -6px -6px 12px var(--border-light);
       --shadow-recessed: inset 4px 4px 8px var(--border-shadow), inset -4px -4px 8px var(--border-light);
       --shadow-glow: 0 0 10px 2px rgba(255, 71, 87, 0.6);
@@ -44,7 +47,8 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      cursor: none; /* Hide default cursor to use custom target reticle */
+      cursor: none;
+      /* Hide default cursor to use custom target reticle */
     }
 
     html {
@@ -131,7 +135,8 @@
     /* --- Layout Elements --- */
     .container-wide {
       width: 100%;
-      max-width: 72rem; /* 1152px */
+      max-width: 72rem;
+      /* 1152px */
       margin: 0 auto;
       padding-left: 1.5rem;
       padding-right: 1.5rem;
@@ -287,8 +292,13 @@
     }
 
     @keyframes led-pulse {
-      0% { opacity: 0.6; }
-      100% { opacity: 1; }
+      0% {
+        opacity: 0.6;
+      }
+
+      100% {
+        opacity: 1;
+      }
     }
 
     /* --- Button Component Styling ("Physical Keys") --- */
@@ -304,7 +314,8 @@
       letter-spacing: 0.05em;
       height: 48px;
       padding: 0 1.75rem;
-      border-radius: 8px; /* md */
+      border-radius: 8px;
+      /* md */
       border: 1px solid transparent;
       text-decoration: none;
       transition: transform 150ms cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 150ms ease, background-color 150ms ease;
@@ -325,7 +336,7 @@
     .btn-primary {
       background-color: var(--accent);
       color: var(--accent-foreground);
-      box-shadow: 4px 4px 8px rgba(166,50,60,0.3), -4px -4px 8px rgba(255,100,110,0.3);
+      box-shadow: 4px 4px 8px rgba(166, 50, 60, 0.3), -4px -4px 8px rgba(255, 100, 110, 0.3);
       border-color: rgba(255, 255, 255, 0.15);
     }
 
@@ -406,12 +417,13 @@
     }
 
     .device-bezel {
-      background: #2d3436; /* Dark ABS plastic */
+      background: #2d3436;
+      /* Dark ABS plastic */
       border: 4px solid #1e252b;
       border-radius: 20px;
       padding: 24px 24px 32px 24px;
       position: relative;
-      box-shadow: 15px 15px 30px rgba(0,0,0,0.25), inset 2px 2px 0 rgba(255,255,255,0.1), inset -2px -2px 0 rgba(0,0,0,0.5);
+      box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.25), inset 2px 2px 0 rgba(255, 255, 255, 0.1), inset -2px -2px 0 rgba(0, 0, 0, 0.5);
       transform: rotateX(3deg) rotateY(-3deg);
       transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
@@ -427,10 +439,10 @@
       right: 0;
       bottom: 0;
       border-radius: 16px;
-      background-image: linear-gradient(45deg, rgba(0,0,0,0.15) 25%, transparent 25%),
-                        linear-gradient(-45deg, rgba(0,0,0,0.15) 25%, transparent 25%),
-                        linear-gradient(45deg, transparent 75%, rgba(0,0,0,0.15) 75%),
-                        linear-gradient(-45deg, transparent 75%, rgba(0,0,0,0.15) 75%);
+      background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.15) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(0, 0, 0, 0.15) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.15) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.15) 75%);
       background-size: 4px 4px;
       opacity: 0.12;
       pointer-events: none;
@@ -442,19 +454,34 @@
       height: 10px;
       border-radius: 50%;
       background: radial-gradient(circle, #555 20%, #1a1a1a 60%, #444 80%);
-      box-shadow: inset 1px 1px 1px rgba(255,255,255,0.2), 1px 1px 2px rgba(0,0,0,0.4);
+      box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.2), 1px 1px 2px rgba(0, 0, 0, 0.4);
     }
 
-    .device-screw.top-left { top: 10px; left: 10px; }
-    .device-screw.top-right { top: 10px; right: 10px; }
-    .device-screw.bottom-left { bottom: 10px; left: 10px; }
-    .device-screw.bottom-right { bottom: 10px; right: 10px; }
+    .device-screw.top-left {
+      top: 10px;
+      left: 10px;
+    }
+
+    .device-screw.top-right {
+      top: 10px;
+      right: 10px;
+    }
+
+    .device-screw.bottom-left {
+      bottom: 10px;
+      left: 10px;
+    }
+
+    .device-screw.bottom-right {
+      bottom: 10px;
+      right: 10px;
+    }
 
     .device-screen-container {
       background-color: #0f141c;
       border-radius: 10px;
       padding: 12px;
-      box-shadow: inset 4px 4px 10px rgba(0,0,0,0.7), 0 1px 1px rgba(255,255,255,0.1);
+      box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.7), 0 1px 1px rgba(255, 255, 255, 0.1);
       position: relative;
       overflow: hidden;
       aspect-ratio: 4/3;
@@ -480,7 +507,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(rgba(18,16,16,0) 50%, rgba(0,0,0,0.25) 50%);
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
       background-size: 100% 4px;
       z-index: 10;
       pointer-events: none;
@@ -501,7 +528,7 @@
     .screen-header {
       display: flex;
       align-items: center;
-      border-bottom: 1px solid rgba(34,197,94,0.3);
+      border-bottom: 1px solid rgba(34, 197, 94, 0.3);
       padding-bottom: 6px;
       margin-bottom: 8px;
     }
@@ -527,10 +554,10 @@
     }
 
     .screen-console {
-      background: rgba(0,0,0,0.3);
+      background: rgba(0, 0, 0, 0.3);
       padding: 6px;
       border-radius: 4px;
-      border: 1px solid rgba(34,197,94,0.15);
+      border: 1px solid rgba(34, 197, 94, 0.15);
       min-height: 70px;
     }
 
@@ -553,8 +580,8 @@
     }
 
     .screen-stat-box {
-      border: 1px solid rgba(34,197,94,0.2);
-      background: rgba(34,197,94,0.03);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      background: rgba(34, 197, 94, 0.03);
       padding: 4px;
       border-radius: 4px;
       text-align: center;
@@ -567,7 +594,7 @@
 
     .stat-lbl {
       font-size: 0.5rem;
-      color: rgba(34,197,94,0.5);
+      color: rgba(34, 197, 94, 0.5);
     }
 
     .screen-visualizer {
@@ -577,12 +604,12 @@
       height: 30px;
       margin-top: auto;
       padding-bottom: 2px;
-      border-bottom: 1px dashed rgba(34,197,94,0.3);
+      border-bottom: 1px dashed rgba(34, 197, 94, 0.3);
     }
 
     .viz-bar {
       flex: 1;
-      background: rgba(34,197,94,0.6);
+      background: rgba(34, 197, 94, 0.6);
       box-shadow: 0 0 6px rgba(34, 197, 94, 0.3);
       border-radius: 1px 1px 0 0;
       animation: bar-dance 1.5s infinite alternate ease-in-out;
@@ -594,12 +621,22 @@
       box-shadow: 0 0 6px rgba(255, 71, 87, 0.3);
     }
 
-    .viz-bar:nth-child(3n) { animation-delay: 0.6s; }
-    .viz-bar:nth-child(4n) { animation-delay: 0.1s; }
+    .viz-bar:nth-child(3n) {
+      animation-delay: 0.6s;
+    }
+
+    .viz-bar:nth-child(4n) {
+      animation-delay: 0.1s;
+    }
 
     @keyframes bar-dance {
-      0% { height: 15%; }
-      100% { height: 95%; }
+      0% {
+        height: 15%;
+      }
+
+      100% {
+        height: 95%;
+      }
     }
 
     .device-buttons {
@@ -620,7 +657,7 @@
       border: 1px solid #111;
       border-radius: 0 3px 3px 0;
       cursor: pointer;
-      box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
       transition: transform 0.1s;
     }
 
@@ -642,15 +679,15 @@
       border-top: 1px solid var(--border-dark);
       border-bottom: 1px solid var(--border-dark);
       background: var(--background);
-      box-shadow: inset 0 2px 5px rgba(0,0,0,0.05), 0 1px 0 #ffffff;
+      box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05), 0 1px 0 #ffffff;
       padding: 1.2rem 0;
     }
 
     .marquee-container.bg-accent {
       background-color: var(--accent);
-      border-top-color: rgba(0,0,0,0.1);
-      border-bottom-color: rgba(0,0,0,0.15);
-      box-shadow: inset 0 3px 6px rgba(0,0,0,0.15);
+      border-top-color: rgba(0, 0, 0, 0.1);
+      border-bottom-color: rgba(0, 0, 0, 0.15);
+      box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.15);
     }
 
     .marquee-track {
@@ -695,8 +732,13 @@
     }
 
     @keyframes marquee-scroll {
-      0% { transform: translate3d(0, 0, 0); }
-      100% { transform: translate3d(-50%, 0, 0); }
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+
+      100% {
+        transform: translate3d(-50%, 0, 0);
+      }
     }
 
     /* --- Work / Portfolio Section --- */
@@ -724,14 +766,15 @@
     .project-card {
       background-color: var(--background);
       padding: 2.5rem;
-      border-radius: 16px; /* lg */
+      border-radius: 16px;
+      /* lg */
       box-shadow: var(--shadow-card);
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       min-height: 400px;
-      border: 1px solid rgba(255,255,255,0.5);
+      border: 1px solid rgba(255, 255, 255, 0.5);
       transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 300ms ease;
     }
 
@@ -744,7 +787,7 @@
       right: 0;
       bottom: 0;
       pointer-events: none;
-      background-image: 
+      background-image:
         radial-gradient(circle at 14px 14px, var(--border-dark) 1.5px, transparent 2.5px),
         radial-gradient(circle at calc(100% - 14px) 14px, var(--border-dark) 1.5px, transparent 2.5px),
         radial-gradient(circle at 14px calc(100% - 14px), var(--border-dark) 1.5px, transparent 2.5px),
@@ -765,7 +808,7 @@
       height: 14px;
       border-radius: 9999px;
       background-color: var(--muted);
-      box-shadow: inset 1px 1px 2px rgba(0,0,0,0.15), inset -1px -1px 2px rgba(255,255,255,0.7);
+      box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.15), inset -1px -1px 2px rgba(255, 255, 255, 0.7);
     }
 
     /* Hanging Hole for pricing/card vibe */
@@ -892,7 +935,7 @@
       box-shadow: var(--shadow-card);
       padding: 2.2rem;
       position: relative;
-      border: 1px solid rgba(255,255,255,0.5);
+      border: 1px solid rgba(255, 255, 255, 0.5);
     }
 
     /* Corner screws for graphic-block */
@@ -904,7 +947,7 @@
       right: 0;
       bottom: 0;
       pointer-events: none;
-      background-image: 
+      background-image:
         radial-gradient(circle at 12px 12px, var(--border-dark) 1.5px, transparent 2.5px),
         radial-gradient(circle at calc(100% - 12px) 12px, var(--border-dark) 1.5px, transparent 2.5px),
         radial-gradient(circle at 12px calc(100% - 12px), var(--border-dark) 1.5px, transparent 2.5px),
@@ -914,13 +957,11 @@
     /* Warning Stripe details for manufacturing aesthetic */
     .warning-stripe {
       height: 6px;
-      background: repeating-linear-gradient(
-        -45deg,
-        var(--accent),
-        var(--accent) 8px,
-        #2d3436 8px,
-        #2d3436 16px
-      );
+      background: repeating-linear-gradient(-45deg,
+          var(--accent),
+          var(--accent) 8px,
+          #2d3436 8px,
+          #2d3436 16px);
       width: 100%;
       border-radius: 3px;
       margin-bottom: 1.2rem;
@@ -961,7 +1002,7 @@
       padding: 0.8rem 1.2rem;
       border-radius: 8px;
       box-shadow: var(--shadow-card);
-      border: 1px solid rgba(255,255,255,0.4);
+      border: 1px solid rgba(255, 255, 255, 0.4);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -1027,7 +1068,8 @@
       font-size: 0.95rem;
       color: var(--text-primary);
       padding: 0.5rem 1.2rem;
-      border-radius: 8px; /* md */
+      border-radius: 8px;
+      /* md */
       width: 100%;
       transition: box-shadow 150ms ease;
     }
@@ -1178,6 +1220,220 @@
       box-shadow: var(--shadow-pressed);
     }
 
+    /* --- Neumorphic Interactive Project Modal --- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(45, 52, 54, 0.4);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      background-color: var(--background);
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+      box-shadow: var(--shadow-floating);
+      max-width: 860px;
+      width: 100%;
+      max-height: 90vh;
+      overflow: hidden;
+      position: relative;
+      transform: scale(0.95) translateY(20px);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .modal-overlay.active .modal-box {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+
+    /* Screws for modal cards */
+    .modal-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      z-index: 100;
+      background-image:
+        radial-gradient(circle at 14px 14px, var(--border-dark) 1.5px, transparent 2.5px),
+        radial-gradient(circle at calc(100% - 14px) 14px, var(--border-dark) 1.5px, transparent 2.5px),
+        radial-gradient(circle at 14px calc(100% - 14px), var(--border-dark) 1.5px, transparent 2.5px),
+        radial-gradient(circle at calc(100% - 14px) calc(100% - 14px), var(--border-dark) 1.5px, transparent 2.5px);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--border-dark);
+      background-color: var(--foreground);
+      box-shadow: inset 0 1px 0 #ffffff;
+      position: relative;
+    }
+
+    .modal-close-btn {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border: 1px solid var(--border-dark);
+      background: var(--background);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 150ms ease;
+      box-shadow: var(--shadow-card);
+      outline: none;
+    }
+
+    .modal-close-btn:hover {
+      color: var(--accent);
+      background-color: var(--foreground);
+    }
+
+    .modal-close-btn:active {
+      transform: translateY(2px);
+      box-shadow: var(--shadow-pressed);
+    }
+
+    .modal-body {
+      padding: 2rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-height: calc(90vh - 150px);
+    }
+
+    /* Custom Scrollbar for Modal Body */
+    .modal-body::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .modal-body::-webkit-scrollbar-track {
+      background: var(--background);
+      border-left: 1px solid var(--border-dark);
+    }
+
+    .modal-body::-webkit-scrollbar-thumb {
+      background: var(--border-dark);
+      border-radius: 9999px;
+      border: 2px solid var(--background);
+    }
+
+    .modal-body::-webkit-scrollbar-thumb:hover {
+      background: var(--accent);
+    }
+
+    .modal-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px dashed var(--border-dark);
+      padding-bottom: 1rem;
+    }
+
+    .modal-viewport {
+      width: 100%;
+      height: 380px;
+      border-radius: 8px;
+      border: 1px solid var(--border-dark);
+      background-color: #0f141c;
+      box-shadow: var(--shadow-recessed);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .modal-viewport iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: white;
+      display: block;
+    }
+
+    .modal-viewport-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      color: #22c55e;
+      font-family: var(--font-mono);
+      text-shadow: 0 0 4px rgba(34, 197, 94, 0.4);
+      text-align: center;
+      position: relative;
+    }
+
+    .modal-viewport-placeholder .crt-scanlines {
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+      background-size: 100% 4px;
+      z-index: 5;
+    }
+
+    .modal-viewport-placeholder .loader-led {
+      width: 12px;
+      height: 12px;
+      background-color: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 10px 2px rgba(34, 197, 94, 0.6);
+      margin-bottom: 1rem;
+      animation: led-pulse 1s infinite alternate;
+    }
+
+    .modal-action-footer {
+      display: flex;
+      gap: 1rem;
+      justify-content: flex-end;
+      padding: 1.2rem 2rem;
+      border-top: 1px solid var(--border-dark);
+      background-color: var(--foreground);
+      box-shadow: inset 0 1px 0 #ffffff;
+    }
+
+    /* Modal loading state overlay */
+    .iframe-loader {
+      position: absolute;
+      inset: 0;
+      background: #0f141c;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      color: #22c55e;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
     /* --- Accessibility Adjustments --- */
     @media (prefers-reduced-motion: reduce) {
       * {
@@ -1257,7 +1513,8 @@
         </h1>
         <div class="hero-description">
           <p class="body-text">
-            I am an IT student actively building web systems, databases, and practical applications for academic projects and my personal portfolio.
+            I am an IT student actively building web systems, databases, and practical applications for academic
+            projects and my personal portfolio.
           </p>
         </div>
         <div class="hero-actions">
@@ -1353,7 +1610,15 @@
 
         <div class="projects-grid">
           <!-- Project 01 -->
-          <article class="project-card" tabindex="0" id="project-1">
+          <article class="project-card" tabindex="0" id="project-1"
+            data-project-id="1"
+            data-title="SPEDAILY - INCLUSIVE LEARNING PLATFORM"
+            data-category="WEB APPLICATION // 2026"
+            data-desc="An inclusive educational tracking platform designed for special needs student data management, class assignments, and parental access."
+            data-tags="HTML5, Bootstrap 5, JavaScript"
+            data-link="https://ais4r.github.io/Spedaily/"
+            data-embed="true"
+            data-extended-desc="SPEDaily is an inclusive learning tracking platform built to support special education (Pendidikan Khas). It offers dedicated dashboards for administrators, teachers, and parents to track student attendance, academic progress, and class registrations. Features include secure login systems, student demographic data management, session-based class generation, and responsive chart analytics. Visitors can interact with a live simulated dashboard using administrative credentials.">
             <div class="card-vents">
               <span class="vent"></span>
               <span class="vent"></span>
@@ -1362,11 +1627,48 @@
             <div class="card-hanging-hole"></div>
             <div class="project-card-header">
               <span class="project-card-index">01</span>
+              <span class="label-text" style="color: var(--text-muted)">WEB APPLICATION // 2026</span>
+            </div>
+            <div class="project-card-body">
+              <h3 class="uppercase-display card-title">SPEDAILY PORTAL</h3>
+              <p class="body-text">An inclusive educational tracking platform designed for special needs student data management, class assignments, and parental access.</p>
+            </div>
+            <div class="project-card-footer">
+              <ul class="project-tags">
+                <li class="project-tag">HTML5</li>
+                <li class="project-tag">Bootstrap 5</li>
+                <li class="project-tag">JavaScript</li>
+              </ul>
+              <span class="project-card-arrow" aria-hidden="true">
+                <i data-lucide="arrow-up-right" style="width: 18px; height: 18px;"></i>
+              </span>
+            </div>
+          </article>
+
+          <!-- Project 02 -->
+          <article class="project-card" tabindex="0" id="project-2"
+            data-project-id="2"
+            data-title="IT LAB BOOKING SYSTEM"
+            data-category="DATABASE SYSTEM // 2025"
+            data-desc="A web-based system to manage computer lab inventory, equipment, and bookings in real-time."
+            data-tags="PHP, MySQL, Bootstrap"
+            data-link="#"
+            data-embed="false"
+            data-extended-desc="The IT Lab Booking System is an administrative tool designed to coordinate computer lab reservations, inventory tracking, and scheduling conflicts. Built with a robust PHP backend and MySQL database, it allows instructors to request bookings, IT staff to approve requests, and automatically maintains an inventory of workstation health and installed software versions. Demonstrates relational database integrity, foreign keys constraint enforcement, and user authentication sessions.">
+            <div class="card-vents">
+              <span class="vent"></span>
+              <span class="vent"></span>
+              <span class="vent"></span>
+            </div>
+            <div class="card-hanging-hole"></div>
+            <div class="project-card-header">
+              <span class="project-card-index">02</span>
               <span class="label-text" style="color: var(--text-muted)">DATABASE SYSTEM // 2025</span>
             </div>
             <div class="project-card-body">
               <h3 class="uppercase-display card-title">IT LAB BOOKING SYSTEM</h3>
-              <p class="body-text">A web-based system to manage computer lab inventory, equipment, and bookings in real-time.</p>
+              <p class="body-text">A web-based system to manage computer lab inventory, equipment, and bookings in
+                real-time.</p>
             </div>
             <div class="project-card-footer">
               <ul class="project-tags">
@@ -1380,36 +1682,16 @@
             </div>
           </article>
 
-          <!-- Project 02 -->
-          <article class="project-card" tabindex="0" id="project-2">
-            <div class="card-vents">
-              <span class="vent"></span>
-              <span class="vent"></span>
-              <span class="vent"></span>
-            </div>
-            <div class="card-hanging-hole"></div>
-            <div class="project-card-header">
-              <span class="project-card-index">02</span>
-              <span class="label-text" style="color: var(--text-muted)">WEB APPLICATION // 2026</span>
-            </div>
-            <div class="project-card-body">
-              <h3 class="uppercase-display card-title">E-LEARNING PORTAL</h3>
-              <p class="body-text">An interactive learning platform supporting the sharing of lecture notes, online quizzes, and student assignment submissions.</p>
-            </div>
-            <div class="project-card-footer">
-              <ul class="project-tags">
-                <li class="project-tag">JavaScript</li>
-                <li class="project-tag">Node.js</li>
-                <li class="project-tag">Express</li>
-              </ul>
-              <span class="project-card-arrow" aria-hidden="true">
-                <i data-lucide="arrow-up-right" style="width: 18px; height: 18px;"></i>
-              </span>
-            </div>
-          </article>
-
           <!-- Project 03 -->
-          <article class="project-card" tabindex="0" id="project-3">
+          <article class="project-card" tabindex="0" id="project-3"
+            data-project-id="3"
+            data-title="IOT MONITORING SYSTEM"
+            data-category="INTERACTIVE TOOL // 2026"
+            data-desc="An interactive dashboard to display server room temperature and humidity using smart sensors."
+            data-tags="Python, Flask, Chart.js"
+            data-link="#"
+            data-embed="false"
+            data-extended-desc="This IoT Monitoring System provides a real-time data visualization dashboard monitoring ambient conditions in data centers. Integrating smart sensor APIs via a Python/Flask microservice, it parses JSON telemetry feeds to construct interactive time-series plots. Includes visual telemetry indicators, custom threshold triggers, automatic safety email alerts for thermal spikes, and SQLite history logging for trend analysis.">
             <div class="card-vents">
               <span class="vent"></span>
               <span class="vent"></span>
@@ -1422,7 +1704,8 @@
             </div>
             <div class="project-card-body">
               <h3 class="uppercase-display card-title">IOT MONITORING SYSTEM</h3>
-              <p class="body-text">An interactive dashboard to display server room temperature and humidity using smart sensors.</p>
+              <p class="body-text">An interactive dashboard to display server room temperature and humidity using smart
+                sensors.</p>
             </div>
             <div class="project-card-footer">
               <ul class="project-tags">
@@ -1437,7 +1720,15 @@
           </article>
 
           <!-- Project 04 -->
-          <article class="project-card" tabindex="0" id="project-4">
+          <article class="project-card" tabindex="0" id="project-4"
+            data-project-id="4"
+            data-title="STUDENT HUB APP"
+            data-category="PORTFOLIO // 2026"
+            data-desc="A digital application for managing student academic records, timetables, and exam results."
+            data-tags="HTML5, CSS Grid, SQL"
+            data-link="#"
+            data-embed="false"
+            data-extended-desc="The Student Hub is a lightweight, responsive dashboard built to streamline academic lifecycle tracking. Students can visualize their timetable, track progress across active subjects, query GPA forecast reports, and manage exam schedules. Focused on CSS Grid accessibility layouts, optimized SQL query indexing for grades retrieval, and interactive DOM manipulation to deliver a clean desktop-like user experience.">
             <div class="card-vents">
               <span class="vent"></span>
               <span class="vent"></span>
@@ -1450,7 +1741,8 @@
             </div>
             <div class="project-card-body">
               <h3 class="uppercase-display card-title">STUDENT HUB APP</h3>
-              <p class="body-text">A digital application for managing student academic records, timetables, and exam results.</p>
+              <p class="body-text">A digital application for managing student academic records, timetables, and exam
+                results.</p>
             </div>
             <div class="project-card-footer">
               <ul class="project-tags">
@@ -1497,10 +1789,12 @@
               I BUILD SYSTEMS AND WEB APPLICATIONS TO SOLVE PRACTICAL PROBLEMS.
             </h3>
             <p class="body-text">
-              I am Aisar Fahim, an Information Technology (IT) student passionate about software engineering and computer science. I love building clean, responsive, and user-friendly web applications.
+              I am Aisar Fahim, an Information Technology (IT) student passionate about software engineering and
+              computer science. I love building clean, responsive, and user-friendly web applications.
             </p>
             <p class="body-text">
-              This portfolio is built to showcase academic projects I have completed during my studies, and to document my journey in learning the latest technologies.
+              This portfolio is built to showcase academic projects I have completed during my studies, and to document
+              my journey in learning the latest technologies.
             </p>
 
             <ul class="skills-grid">
@@ -1539,14 +1833,18 @@
     <div class="marquee-container" aria-hidden="true">
       <div class="marquee-track speed-medium">
         <div class="marquee-text">
-          "THE SYSTEM BUILT IS HIGHLY INTUITIVE AND FUNCTIONS WELL" - PROJECT EVALUATOR <span class="marquee-separator">//</span>
+          "THE SYSTEM BUILT IS HIGHLY INTUITIVE AND FUNCTIONS WELL" - PROJECT EVALUATOR <span
+            class="marquee-separator">//</span>
           "WELL-STRUCTURED CODE WITH COMPLETE DOCUMENTATION" - IT LECTURER <span class="marquee-separator">//</span>
-          "HIGH CREATIVITY IN SOLVING COMPLEX DATABASE PROBLEMS" - INDUSTRY SUPERVISOR <span class="marquee-separator">//</span>
+          "HIGH CREATIVITY IN SOLVING COMPLEX DATABASE PROBLEMS" - INDUSTRY SUPERVISOR <span
+            class="marquee-separator">//</span>
         </div>
         <div class="marquee-text">
-          "THE SYSTEM BUILT IS HIGHLY INTUITIVE AND FUNCTIONS WELL" - PROJECT EVALUATOR <span class="marquee-separator">//</span>
+          "THE SYSTEM BUILT IS HIGHLY INTUITIVE AND FUNCTIONS WELL" - PROJECT EVALUATOR <span
+            class="marquee-separator">//</span>
           "WELL-STRUCTURED CODE WITH COMPLETE DOCUMENTATION" - IT LECTURER <span class="marquee-separator">//</span>
-          "HIGH CREATIVITY IN SOLVING COMPLEX DATABASE PROBLEMS" - INDUSTRY SUPERVISOR <span class="marquee-separator">//</span>
+          "HIGH CREATIVITY IN SOLVING COMPLEX DATABASE PROBLEMS" - INDUSTRY SUPERVISOR <span
+            class="marquee-separator">//</span>
         </div>
       </div>
     </div>
@@ -1571,7 +1869,8 @@
 
             <div class="form-group">
               <label for="message" class="form-label">Your Message</label>
-              <textarea id="message" name="message" class="form-input" placeholder="Write your message or feedback here..." required></textarea>
+              <textarea id="message" name="message" class="form-input"
+                placeholder="Write your message or feedback here..." required></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary" style="align-self: flex-start; height: 52px; padding: 0 2rem;"
@@ -1583,7 +1882,8 @@
           <div class="contact-info-block">
             <div class="contact-item">
               <p class="contact-item-title">Direct E-mail</p>
-              <a href="mailto:aisarfahim17@gmail.com" class="contact-item-content" id="email-link">aisarfahim17@gmail.com</a>
+              <a href="mailto:aisarfahim17@gmail.com" class="contact-item-content"
+                id="email-link">aisarfahim17@gmail.com</a>
             </div>
 
             <div class="contact-item">
@@ -1626,6 +1926,48 @@
       </div>
     </div>
   </footer>
+
+  <!-- Neumorphic Interactive Project Modal Overlay -->
+  <div class="modal-overlay" id="project-modal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <header class="modal-header">
+        <div>
+          <span class="label-text" id="modal-category">PROJECT PREVIEW</span>
+          <h2 class="uppercase-display" id="modal-title" style="font-size: clamp(1.2rem, 3vw, 1.8rem); margin-top: 0.2rem; filter: none;">PROJECT DETAILS</h2>
+        </div>
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Preview" title="Close Dial (Esc)">
+          ESC
+        </button>
+      </header>
+      
+      <div class="modal-body">
+        <!-- Live viewframe / screenshot placeholder -->
+        <div class="modal-viewport" id="modal-viewport">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <div class="modal-meta">
+          <span class="label-text">PROJECT SPECS</span>
+          <ul class="modal-tags" id="modal-tags">
+            <!-- Populated dynamically -->
+          </ul>
+        </div>
+
+        <p class="body-text" id="modal-description" style="font-size: 0.95rem;">
+          Detailed information about the project goes here.
+        </p>
+      </div>
+
+      <footer class="modal-action-footer">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="modal-action-link" style="height: 44px; padding: 0 1.5rem; font-size: 0.8rem;">
+          <i data-lucide="external-link" style="width: 16px; height: 16px;"></i> Launch Live App
+        </a>
+        <button class="btn btn-outline" id="modal-close-action" style="height: 44px; padding: 0 1.5rem; font-size: 0.8rem;">
+          Close Console
+        </button>
+      </footer>
+    </div>
+  </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -1714,7 +2056,7 @@
       const screenContainer = document.querySelector('.device-screen-container');
       const consoleEl = document.querySelector('.screen-console');
       const uptimeNum = document.getElementById('live-uptime');
-      
+
       let isPowerOn = true;
       let currentScreenMode = 0;
 
@@ -1723,7 +2065,7 @@
           isPowerOn = !isPowerOn;
           screenContainer.classList.toggle('power-off');
           const bezelLed = powerBtn.closest('.device-bezel').querySelector('.led');
-          
+
           if (!isPowerOn) {
             if (bezelLed) {
               bezelLed.classList.remove('led-green');
@@ -1742,7 +2084,7 @@
         adjustBtn.addEventListener('click', () => {
           if (!isPowerOn) return;
           currentScreenMode = (currentScreenMode + 1) % 3;
-          
+
           if (currentScreenMode === 0) {
             consoleEl.innerHTML = `
               <p class="console-line"><span class="line-tag">[SYS]</span> BOOTING SUCCESSFUL</p>
@@ -1828,7 +2170,7 @@
           submitBtn.style.backgroundColor = 'var(--text-primary)';
           submitBtn.style.color = 'var(--background)';
           submitBtn.style.boxShadow = 'var(--shadow-pressed)';
-          
+
           if (typeof lucide !== 'undefined') {
             lucide.createIcons();
           }
@@ -1848,6 +2190,146 @@
           }, 3000);
         });
       }
+
+      // --- Project Details Modal Logic ---
+      const modal = document.getElementById('project-modal');
+      const modalCloseBtn = document.getElementById('modal-close-btn');
+      const modalCloseAction = document.getElementById('modal-close-action');
+      const projectCards = document.querySelectorAll('.project-card');
+
+      const modalTitle = document.getElementById('modal-title');
+      const modalCategory = document.getElementById('modal-category');
+      const modalDescription = document.getElementById('modal-description');
+      const modalTags = document.getElementById('modal-tags');
+      const modalViewport = document.getElementById('modal-viewport');
+      const modalActionLink = document.getElementById('modal-action-link');
+
+      function openModal(card) {
+        const title = card.getAttribute('data-title');
+        const category = card.getAttribute('data-category');
+        const desc = card.getAttribute('data-extended-desc') || card.getAttribute('data-desc');
+        const tags = card.getAttribute('data-tags').split(',');
+        const link = card.getAttribute('data-link');
+        const embed = card.getAttribute('data-embed') === 'true';
+
+        // Populate details
+        modalTitle.textContent = title;
+        modalCategory.textContent = category;
+        modalDescription.textContent = desc;
+
+        // Populate tags
+        modalTags.innerHTML = '';
+        tags.forEach(tag => {
+          const li = document.createElement('li');
+          li.className = 'project-tag';
+          li.textContent = tag.trim();
+          modalTags.appendChild(li);
+        });
+
+        // Set action link
+        if (link && link !== '#') {
+          modalActionLink.href = link;
+          modalActionLink.style.display = 'inline-flex';
+        } else {
+          modalActionLink.style.display = 'none';
+        }
+
+        // Viewport content (iframe for SPEDaily or Console output for static projects)
+        modalViewport.innerHTML = '';
+        if (embed && link && link !== '#') {
+          // Add loader
+          const loader = document.createElement('div');
+          loader.className = 'iframe-loader';
+          loader.innerHTML = `
+            <div class="loader-led"></div>
+            <div>CONNECTING REMOTE PORTAL...</div>
+            <div style="font-size: 0.65rem; opacity: 0.7; margin-top: 4px;">HOST: ${link}</div>
+          `;
+          modalViewport.appendChild(loader);
+
+          const iframe = document.createElement('iframe');
+          iframe.src = link;
+          iframe.title = title;
+          iframe.onload = () => {
+            loader.remove();
+          };
+          modalViewport.appendChild(iframe);
+        } else {
+          // Industrial simulation dashboard
+          const placeholder = document.createElement('div');
+          placeholder.className = 'modal-viewport-placeholder';
+          placeholder.innerHTML = `
+            <div class="crt-scanlines"></div>
+            <div class="loader-led" style="background-color: var(--accent); box-shadow: 0 0 10px 2px rgba(255, 71, 87, 0.6);"></div>
+            <h4 style="font-size: 1rem; margin-bottom: 0.5rem; text-transform: uppercase;">LOCAL PREVIEW UNAVAILABLE</h4>
+            <p style="font-size: 0.7rem; color: #888; max-width: 320px; text-transform: uppercase;">
+              Offline development system schematic. Launch live app or refer to database diagnostics console.
+            </p>
+            <div style="margin-top: 1.5rem; font-size: 0.6rem; color: var(--accent); opacity: 0.8; text-transform: uppercase; text-align: left; font-family: var(--font-mono); line-height: 1.4;">
+              [SYS] DIAGNOSTIC LOG:<br>
+              >> Port 8080 local loopback... OK<br>
+              >> Static assets index mapping... COMPLETE<br>
+              >> DBMS Schema compiled: ${tags[0] || 'SQL'}<br>
+              >> STATUS: DEPLOYED TO LOCAL SIMULATOR
+            </div>
+          `;
+          modalViewport.appendChild(placeholder);
+        }
+
+        // Open modal
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+
+        // Refresh custom cursor hover listeners for new elements
+        if (typeof refreshHoverListeners === 'function') {
+          refreshHoverListeners();
+        }
+      }
+
+      function closeModal() {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        
+        // Remove iframe to stop loading/processing in background
+        setTimeout(() => {
+          modalViewport.innerHTML = '';
+        }, 300);
+      }
+
+      // Event listeners for opening
+      projectCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+          e.preventDefault();
+          openModal(card);
+        });
+
+        card.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openModal(card);
+          }
+        });
+      });
+
+      // Close buttons
+      if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+      if (modalCloseAction) modalCloseAction.addEventListener('click', closeModal);
+
+      // Close on clicking overlay
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          closeModal();
+        }
+      });
 
       // --- Scroll Entrance Animation with Intersection Observer ---
       const revealOptions = {
